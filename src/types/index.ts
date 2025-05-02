@@ -14,5 +14,6 @@ export interface Product {
     id: string;
     username: string;
     rating: number;
+    description: string;
   }[];
 }
