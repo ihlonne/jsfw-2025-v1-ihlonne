@@ -9,4 +9,21 @@ const getProducts = async () => {
   return products;
 };
 
-export default getProducts;
+const getProductById = async (
+  id: string
+): Promise<Product | null> => {
+  try {
+    const { data: product } = await fetcher<{
+      data: Product;
+    }>(`/online-shop/${id}`);
+    return product;
+  } catch (error) {
+    console.error(
+      'Failed to fetch product:',
+      error
+    );
+    return null;
+  }
+};
+
+export { getProducts, getProductById };
