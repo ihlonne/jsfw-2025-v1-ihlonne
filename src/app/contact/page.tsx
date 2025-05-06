@@ -100,7 +100,7 @@ const ContactPage = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex flex-col justify-center items-center w-full my-12 h-auto'
+      className='flex flex-col justify-center items-center w-full my-12 h-auto px-4 md:px-0'
     >
       <h1 className='text-3xl font-bold'>
         Contact us
