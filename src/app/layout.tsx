@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout';
+import { Toaster } from 'react-hot-toast';
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import {
@@ -31,6 +32,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
+        <Toaster
+          position='top-right'
+          reverseOrder={false}
+        />
         <Layout>{children}</Layout>
       </body>
     </html>

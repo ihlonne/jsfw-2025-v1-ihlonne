@@ -17,3 +17,10 @@ export interface Product {
     description: string;
   }[];
 }
+
+export interface ContactForm {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
