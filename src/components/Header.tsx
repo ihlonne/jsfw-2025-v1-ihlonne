@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import { FaShoppingCart } from 'react-icons/fa';
-
-const cartItemCount = 3;
+import CartNavItem from './CartNavItem';
 
 const Header = () => {
   return (
@@ -31,20 +29,7 @@ const Header = () => {
               Contact
             </Link>
           </li>
-          <li className='relative'>
-            <Link
-              href='/cart'
-              className='flex justify-center items-center gap-1 hover:underline hover:underline-offset-8 hover:decoration-4 hover:decoration-red-800'
-            >
-              <p>Cart</p>
-              <FaShoppingCart />
-              {cartItemCount > 0 && (
-                <span className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center'>
-                  {cartItemCount}
-                </span>
-              )}
-            </Link>
-          </li>
+          <CartNavItem />
         </ul>
       </nav>
     </div>
