@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { getProductById } from '@/lib/productApi';
 import Image from 'next/image';
 import { MdVerified } from 'react-icons/md';
+import AddToCartButton from '@/components/AddToCartButton';
 
 export default async function ProductPage({
   params,
@@ -63,9 +64,7 @@ export default async function ProductPage({
                 ${product.price}
               </p>
             )}
-            <button className='bg-blue-800 rounded-md text-white font-bold py-4 px-1 my-3 md:my-0'>
-              Add to Cart
-            </button>
+            <AddToCartButton product={product} />
             <div className='flex gap-1'>
               {product.tags?.map((tag) => (
                 <span
