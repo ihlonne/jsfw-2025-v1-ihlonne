@@ -8,7 +8,6 @@ type ProductCardProps = {
 function ProductCard({
   product,
 }: ProductCardProps) {
-  console.log(product);
   return (
     <div key={product.id}>
       <div className='relative w-full aspect-[3/4] overflow-hidden rounded-xs'>

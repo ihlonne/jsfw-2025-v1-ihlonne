@@ -19,7 +19,6 @@ export default function Home() {
       .catch(console.error);
   }, []);
 
-  console.log(products);
   return (
     <ProductProvider>
       <div className='flex align-center justify-center mx-auto w-full max-w-[1290px]'>
