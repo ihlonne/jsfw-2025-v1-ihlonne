@@ -65,7 +65,7 @@ export default async function ProductPage({
               </p>
             )}
             <AddToCartButton product={product} />
-            <div className='flex gap-1'>
+            <div className='flex gap-1 pt-4 md:pt-0'>
               {product.tags?.map((tag) => (
                 <span
                   key={tag}
