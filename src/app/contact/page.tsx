@@ -86,7 +86,6 @@ const ContactPage = () => {
       showSuccess(
         'Message submitted successfully!'
       );
-      console.log('Form submitted', formData);
 
       setFormData({
         name: '',

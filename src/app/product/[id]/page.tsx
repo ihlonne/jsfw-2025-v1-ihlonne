@@ -4,13 +4,16 @@ import Image from 'next/image';
 import { MdVerified } from 'react-icons/md';
 import AddToCartButton from '@/components/AddToCartButton';
 
+type PageProps = {
+  params: { id: string };
+};
+
 export default async function ProductPage({
   params,
-}: {
-  params: { id: string };
-}) {
-  const product = await getProductById(params.id);
-  console.log(product);
+}: PageProps) {
+  const { id } = params;
+
+  const product = await getProductById(id);
   if (!product) return notFound();
 
   return (
@@ -65,7 +68,7 @@ export default async function ProductPage({
               </p>
             )}
             <AddToCartButton product={product} />
-            <div className='flex gap-1'>
+            <div className='flex gap-1 pt-4 md:pt-0'>
               {product.tags?.map((tag) => (
                 <span
                   key={tag}
