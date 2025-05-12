@@ -16,7 +16,7 @@ const CartNavItem = () => {
     <li className='relative'>
       <Link
         href='/cart'
-        className='flex justify-center items-center gap-1 hover:underline hover:underline-offset-8 hover:decoration-4 hover:decoration-red-800'
+        className='flex justify-center items-center gap-1 hover:font-bold'
       >
         <p>Cart</p>
         <FaShoppingCart />

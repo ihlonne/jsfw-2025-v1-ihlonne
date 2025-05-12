@@ -16,7 +16,7 @@ const Header = () => {
           <li>
             <Link
               href='/'
-              className='hover:underline hover:underline-offset-8 hover:decoration-4 hover:decoration-red-800'
+              className='hover:font-bold'
             >
               Home
             </Link>
@@ -24,7 +24,7 @@ const Header = () => {
           <li>
             <Link
               href='/contact'
-              className='hover:underline hover:underline-offset-8 hover:decoration-4 hover:decoration-red-800'
+              className='hover:font-bold'
             >
               Contact
             </Link>
