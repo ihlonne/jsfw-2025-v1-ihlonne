@@ -11,12 +11,14 @@ export interface Product {
   };
   rating: number;
   tags?: string[];
-  reviews?: {
-    id: string;
-    username: string;
-    rating: number;
-    description: string;
-  }[];
+  reviews?: Reviews[];
+}
+
+export interface Reviews {
+  id: string;
+  username: string;
+  rating: number;
+  description: string;
 }
 
 export interface ContactForm {
