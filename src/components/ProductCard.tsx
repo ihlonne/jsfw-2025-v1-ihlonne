@@ -8,12 +8,13 @@ type ProductCardProps = {
 function ProductCard({
   product,
 }: ProductCardProps) {
+  console.log(product);
   return (
     <div key={product.id}>
       <div className='relative w-full aspect-[3/4] overflow-hidden rounded-xs'>
         <Image
-          src={product.image.url}
-          alt={product.image.alt}
+          src={product.imageUrl}
+          alt={product.title}
           fill
           className='object-cover'
           sizes='(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw'
