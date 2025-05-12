@@ -13,6 +13,8 @@ interface ProductContextType {
   filteredProducts: Product[];
   setSearchQuery: (query: string) => void;
   fetchProducts: () => Promise<void>;
+  sortBy: string;
+  setSortBy: (sort: string) => void;
 }
 
 const ProductContext = createContext<
@@ -31,6 +33,8 @@ export const ProductProvider = ({
     useState<Product[]>([]);
   const [searchQuery, setSearchQuery] =
     useState('');
+  const [sortBy, setSortBy] =
+    useState('name-asc');
 
   const fetchProducts = async () => {
     const res = await fetch(
@@ -46,13 +50,32 @@ export const ProductProvider = ({
   }, []);
 
   useEffect(() => {
-    const filtered = products.filter((product) =>
+    let filtered = products.filter((product) =>
       product.title
         .toLowerCase()
         .includes(searchQuery.toLowerCase())
     );
+
+    filtered = filtered.sort((a, b) => {
+      const aPrice = a.discountedPrice ?? a.price;
+      const bPrice = b.discountedPrice ?? b.price;
+
+      switch (sortBy) {
+        case 'name-asc':
+          return a.title.localeCompare(b.title);
+        case 'name-desc':
+          return b.title.localeCompare(a.title);
+        case 'price-asc':
+          return aPrice - bPrice;
+        case 'price-desc':
+          return bPrice - aPrice;
+        default:
+          return 0;
+      }
+    });
+
     setFilteredProducts(filtered);
-  }, [searchQuery, products]);
+  }, [searchQuery, products, sortBy]);
 
   return (
     <ProductContext.Provider
@@ -61,6 +84,8 @@ export const ProductProvider = ({
         filteredProducts,
         setSearchQuery,
         fetchProducts,
+        sortBy,
+        setSortBy,
       }}
     >
       {children}

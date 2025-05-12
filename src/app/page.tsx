@@ -6,6 +6,7 @@ import { Product } from '@/types';
 import Searchbar from '@/components/Searchbar';
 import { ProductProvider } from '@/context/ProductContext';
 import ProductList from '@/components/ProductList';
+import SortDropdown from '@/components/SortDropdown';
 
 export default function Home() {
   const [products, setProducts] = useState<
@@ -21,9 +22,12 @@ export default function Home() {
   console.log(products);
   return (
     <ProductProvider>
-      <div className='flex align-center justify-center m-[0 auto] w-full'>
-        <div className='flex flex-col'>
-          <Searchbar />
+      <div className='flex align-center justify-center mx-auto w-full max-w-[1290px]'>
+        <div className='flex flex-col w-full'>
+          <div className='flex flex-col md:flex-row justify-between items-center gap-4 my-8'>
+            <Searchbar />
+            <SortDropdown />
+          </div>
           <ProductList />
         </div>
       </div>
