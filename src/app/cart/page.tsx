@@ -4,9 +4,11 @@ import QuantityControl from '@/components/QuantityControl';
 import { useCart } from '@/hooks/useCart';
 import { useCartStore } from '@/stores/cartStore';
 import Image from 'next/image';
-import Link from 'next/link';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const CartPage = () => {
+  const router = useRouter();
   const items = useCartStore(
     (state) => state.items
   );
@@ -16,10 +18,18 @@ const CartPage = () => {
     0
   );
 
-  const { removeItem } = useCart();
+  const { removeItem, clearCart } = useCart();
 
   const handleDelete = (id: string) => {
     removeItem(id);
+  };
+
+  const handleCheckout = () => {
+    clearCart();
+    toast.success('Checkout successful!');
+    setTimeout(() => {
+      router.push('/success');
+    }, 1500);
   };
 
   return (
@@ -93,12 +103,12 @@ const CartPage = () => {
             </p>
           </div>
           <div className='mt-6 items-end'>
-            <Link
-              href='/success'
+            <button
+              onClick={handleCheckout}
               className='w-auto px-8 py-2 bg-blue-700 text-white  font-bold rounded hover:bg-blue-800 transition cursor-pointer'
             >
               Checkout
-            </Link>
+            </button>
           </div>
         </>
       )}
