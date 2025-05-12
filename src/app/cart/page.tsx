@@ -22,6 +22,7 @@ const CartPage = () => {
 
   const handleDelete = (id: string) => {
     removeItem(id);
+    toast.error('Item deleted!');
   };
 
   const handleCheckout = () => {
