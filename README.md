@@ -4,7 +4,7 @@ This is a fully functional online shop built using Next.js, React, TypeScript, a
 
 ### 🚀 Live Demo
 
-- [View Live Site]()
+- [View Live Site](https://jsfw-2025-v1-ihlonne.vercel.app/)
 
 ## Features
 
