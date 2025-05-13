@@ -12,7 +12,10 @@ function ProductCard({
     <div key={product.id}>
       <div className='relative w-full aspect-[3/4] overflow-hidden rounded-xs'>
         <Image
-          src={product.imageUrl}
+          src={
+            product.imageUrl ??
+            'https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          }
           alt={product.title}
           fill
           className='object-cover'
