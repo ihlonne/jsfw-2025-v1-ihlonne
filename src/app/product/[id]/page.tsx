@@ -4,16 +4,12 @@ import Image from 'next/image';
 import { MdVerified } from 'react-icons/md';
 import AddToCartButton from '@/components/AddToCartButton';
 
-type PageProps = {
-  params: { id: string };
-};
-
 export default async function ProductPage({
   params,
-}: PageProps) {
-  const { id } = params;
-
-  const product = await getProductById(id);
+}: {
+  params: { id: string };
+}) {
+  const product = await getProductById(params.id);
   if (!product) return notFound();
 
   return (
