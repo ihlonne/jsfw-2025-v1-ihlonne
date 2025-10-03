@@ -18,7 +18,7 @@ const CartNavItem = () => {
         <p>Cart</p>
         <FaShoppingCart />
         {totalItems > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
+          <span className="absolute -top-1 -right-2 bg-blue-8 00 text-white rounded-full text-xs w-4 h-4 flex items-center justify-center">
             {totalItems}
           </span>
         )}

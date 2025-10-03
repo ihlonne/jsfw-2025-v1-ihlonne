@@ -58,7 +58,7 @@ export default async function ProductPage({
               {product.tags?.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-blue-100 rounded-md py-1 px-2 text-xs"
+                  className="bg-blue-100 rounded-md py-1 px-2 text-xs uppercase"
                 >
                   {tag}
                 </span>
