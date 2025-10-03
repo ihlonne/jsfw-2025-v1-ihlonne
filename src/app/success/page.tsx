@@ -1,6 +1,6 @@
 const SuccessPage = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full my-12 h-auto">
+    <div className="flex flex-col justify-center items-center w-full my-12 h-100">
       <h1 className="text-3xl font-bold">
         Your purchase was made successfully!
       </h1>
