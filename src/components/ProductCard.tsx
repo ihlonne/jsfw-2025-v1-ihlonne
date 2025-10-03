@@ -7,20 +7,18 @@ type ProductCardProps = {
 
 function ProductCard({ product }: ProductCardProps) {
   return (
-    <div key={product.id}>
-      <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xs">
+    <div key={product.id} className="group cursor-pointer">
+      <div className="relative w-full aspect-[3/4] overflow-hidden rounded-md shadow-sm">
         <Image
-          src={
-            product.imageUrl ??
-            'https://images.pexels.com/photos/28216688/pexels-photo-28216688/free-photo-of-autumn-camping.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-          }
+          src={product.imageUrl ?? 'fallback-image-url'}
           alt={product.title}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-110"
           sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
         />
         {product.discountedPrice && product.discountedPrice < product.price ? (
-          <span className="absolute top-4 right-0 inline-flex items-center rounded-l-md bg-red-800 px-3 py-2 text-xs font-medium text-white ring-1 ring-red-600/10 ring-inset">
+          <span className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-md shadow">
+            -
             {Math.round(
               ((product.price - product.discountedPrice) / product.price) * 100
             )}
@@ -33,7 +31,7 @@ function ProductCard({ product }: ProductCardProps) {
         <div className="flex flex-col justify-between align-center">
           <h2 className="text-sm font-semibold">{product.title}</h2>
           {product.reviews && product.reviews.length > 0 ? (
-            <div className="text-sm text-yellow-600">
+            <div className="text-sm text-yellow-600 flex items-center">
               {(
                 product.reviews.reduce((sum, r) => sum + r.rating, 0) /
                 product.reviews.length
