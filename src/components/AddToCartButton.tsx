@@ -33,7 +33,8 @@ const AddToCartButton = ({ product }: { product: Product }) => {
     <div className="mt-4 self-start">
       <button
         onClick={handleClick}
-        className="w-auto px-8 py-2 bg-blue-700 text-white  font-bold rounded hover:bg-blue-800 transition cursor-pointer"
+        className="bg-blue-600 text-white px-4 py-2 rounded-md shadow 
+                   hover:bg-blue-700 hover:scale-105 transition cursor-pointer"
       >
         Add to cart
       </button>
