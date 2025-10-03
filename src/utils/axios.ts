@@ -7,9 +7,7 @@ const api = axios.create({
   },
 });
 
-export const fetcher = async <T>(
-  url: string
-): Promise<T> => {
+export const fetcher = async <T>(url: string): Promise<T> => {
   const response = await api.get<T>(url);
   return response.data;
 };

@@ -9,8 +9,7 @@ export default function QuantityControl({
   id,
   quantity,
 }: QuantityControlProps) {
-  const { updateQuantity, removeItem } =
-    useCart();
+  const { updateQuantity, removeItem } = useCart();
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -25,19 +24,17 @@ export default function QuantityControl({
   };
 
   return (
-    <div className='flex items-center border rounded w-fit'>
+    <div className="flex items-center border rounded w-fit">
       <button
         onClick={handleDecrease}
-        className='px-2 py-1 text-lg cursor-pointer'
+        className="px-2 py-1 text-lg cursor-pointer"
       >
         −
       </button>
-      <span className='px-3 py-1'>
-        {quantity}
-      </span>
+      <span className="px-3 py-1">{quantity}</span>
       <button
         onClick={handleIncrease}
-        className='px-2 py-1 text-lg cursor-pointer'
+        className="px-2 py-1 text-lg cursor-pointer"
       >
         +
       </button>
