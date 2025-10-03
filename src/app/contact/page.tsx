@@ -83,8 +83,11 @@ const ContactPage = () => {
 
       <div className="flex flex-col gap-4 w-full max-w-[500px] mt-12">
         <div className="flex flex-col ">
-          <label className="font-bold">Name</label>
+          <label htmlFor="name" className="font-bold">
+            Name
+          </label>
           <input
+            id="name"
             type="text"
             name="name"
             value={formData.name}
@@ -95,8 +98,11 @@ const ContactPage = () => {
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
         <div className="flex flex-col ">
-          <label className="font-bold">E-mail</label>
+          <label htmlFor="email" className="font-bold">
+            E-mail
+          </label>
           <input
+            id="email"
             type="text"
             name="email"
             value={formData.email}
@@ -109,8 +115,11 @@ const ContactPage = () => {
           )}
         </div>
         <div className="flex flex-col ">
-          <label className="font-bold">Subject</label>
+          <label htmlFor="subject" className="font-bold">
+            Subject
+          </label>
           <input
+            id="subject"
             type="text"
             name="subject"
             value={formData.subject}
@@ -123,8 +132,11 @@ const ContactPage = () => {
           )}
         </div>
         <div className="flex flex-col ">
-          <label className="font-bold">Message</label>
+          <label htmlFor="message" className="font-bold">
+            Message
+          </label>
           <textarea
+            id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
