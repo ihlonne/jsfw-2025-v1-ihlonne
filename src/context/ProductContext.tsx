@@ -1,12 +1,7 @@
 'use client';
 
 import { Product } from '@/types';
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 interface ProductContextType {
   products: Product[];
@@ -17,29 +12,20 @@ interface ProductContextType {
   setSortBy: (sort: string) => void;
 }
 
-const ProductContext = createContext<
-  ProductContextType | undefined
->(undefined);
+const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
 export const ProductProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [products, setProducts] = useState<
-    Product[]
-  >([]);
-  const [filteredProducts, setFilteredProducts] =
-    useState<Product[]>([]);
-  const [searchQuery, setSearchQuery] =
-    useState('');
-  const [sortBy, setSortBy] =
-    useState('name-asc');
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('name-asc');
 
   const fetchProducts = async () => {
-    const res = await fetch(
-      'https://api.noroff.dev/api/v1/online-shop'
-    );
+    const res = await fetch('https://api.noroff.dev/api/v1/online-shop');
     const data = await res.json();
     setProducts(data);
     setFilteredProducts(data);
@@ -51,9 +37,7 @@ export const ProductProvider = ({
 
   useEffect(() => {
     let filtered = products.filter((product) =>
-      product.title
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     filtered = filtered.sort((a, b) => {
@@ -96,8 +80,6 @@ export const ProductProvider = ({
 export const useProductContext = () => {
   const context = useContext(ProductContext);
   if (!context)
-    throw new Error(
-      'useProductContext must be used within a ProductProvider'
-    );
+    throw new Error('useProductContext must be used within a ProductProvider');
   return context;
 };
